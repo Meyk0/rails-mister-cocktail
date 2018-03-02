@@ -29,24 +29,23 @@
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <%= link_to "Cocktail Overview", cocktails_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
-            <%= link_to "Create new cocktail", new_cocktail_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            <div class="button-nav">
+              <%= link_to "Cocktail Overview", cocktails_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            </div>
+            <div class="button-nav">
+              <%= link_to "Create new cocktail", new_cocktail_path, class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            </div>
           </nav>
         </div>
       </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Title</span>
-        <nav class="mdl-navigation">
-          <%= link_to "Create new cocktail", new_cocktail_path, class:"mdl-navigation__link" %>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
+
+
+      <%= yield %><!-- Your content goes here -->
       </div>
-      <main class="mdl-layout__content">
-        <div class="page-content">
-          <%= yield %><!-- Your content goes here -->
-        </div>
-      </main>
-    </div>
+
+
+
+
 
 
 

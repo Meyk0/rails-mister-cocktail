@@ -1,8 +1,16 @@
+
 <div class="container">
-  <h1>The cocktails including <%= @ingredient.name %> are :</h1>
-  <ul>
-    <% @ingredient.cocktails.each do |cocktail| %>
-      <li><%= link_to cocktail.name, cocktail_path(cocktail) %></li>
-    <% end %>
-  </ul>
+  <div class="row">
+    <h1>The cocktails including <%= @ingredient.name %> are :</h1>
+    <% @ingredient.cocktails.each.each do|cocktail| %>
+      <div class="col-xs-12 col-sm-4 col md-4">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.photo_url %>');">
+          <div class="card-category"><%= cocktail.name %></div>
+            <div class="card-button">
+              <%= link_to "More info", cocktail_path(cocktail), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
 </div>

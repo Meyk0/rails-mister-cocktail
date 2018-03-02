@@ -1,17 +1,14 @@
-<h1 class="text-center">Welcome to the Cocktail overview:</p>
-
-<p>This is a list of your cocktails</p>
-
-
+<h1 class="text-center">Cocktail Bar:</h1>
 
 <div class="container">
   <div class="row">
     <% @cocktails.each do|cocktail| %>
       <div class="col-xs-12 col-sm-4 col md-4">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://destinationkennebunkport.com/wp-content/uploads/2016/06/negroni-recipe-dt.jpg');">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cocktail.photo_url %>');">
           <div class="card-category"><%= cocktail.name %></div>
-
-          <%= link_to "More info", cocktail_path(cocktail), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            <div class="card-button">
+              <%= link_to "More info", cocktail_path(cocktail), class:"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" %>
+            </div>
         </div>
       </div>
     <%end%>
