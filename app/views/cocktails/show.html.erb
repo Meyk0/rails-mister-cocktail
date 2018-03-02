@@ -1,24 +1,42 @@
-<%= @cocktail.name %>
-
-
-<ul>
-<% @cocktail.doses.each do |dose| %>
-  <li>
-    <%= dose.ingredient.name %> /
-    <%= dose.description %>
-    <%= link_to dose_path(dose), method: :delete do %>
-      <i class="far fa-trash-alt"></i>
-    <% end %>
-  </li>
-<% end %>
-</ul>
-
 <div class="container">
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :description, placeholder: "amount" %>
-    <%= f.association :ingredient %>
-    <%= f.submit class: "btn btn-primary" %>
-  <% end %>
+  <div class="banner-show" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://destinationkennebunkport.com/wp-content/uploads/2016/06/negroni-recipe-dt.jpg');">
+    <div class="banner-content">
+      <h1><%= @cocktail.name %></h1>
+      <div class="mdl-card__supporting-text">
+        <% @cocktail.doses.each do |dose| %>
+          <li><%= dose.ingredient.name %> : <%= dose.description %>
+            <%= link_to  dose_path(dose), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+          </li>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div class="show-container">
+    <div class="form-ingredient">
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+        <%= f.input :description, placeholder: "amount", label: "Amount" %>
+        <%= f.association :ingredient %>
+          <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored">
+          <i class="material-icons">add</i>
+          </button>
+      <% end %>
+    </div>
+
+    <div class="demo-card-square mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title mdl-card--expand">
+        <h2 class="mdl-card__title-text">Find more drinks including the ingredients below</h2>
+      </div>
+        <div class="mdl-card__supporting-text">
+          <% @cocktail.doses.each do |dose| %>
+              <li><%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %>
+              </li>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Back to index", cocktails_path %>
+

@@ -15,4 +15,17 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
 @import "font-awesome";
+
+h1 {
+  font-family: Roboto;
+}
+
+h2 {
+  font-family: Open Sans;
+}
+
+a:hover {
+  text-decoration: none;
+}

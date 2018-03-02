@@ -1,0 +1,30 @@
+.show-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-ingredient {
+  flex-grow: 1;
+  padding: 20px;
+  margin: 50px;
+}
+
+.demo-card-square {
+  height: 20%;
+  flex-grow: 1;
+  padding: 20px;
+  margin: 50px;
+}
+
+.banner-show {
+  height: 50vh;
+}
+
+.banner-content {
+  color: white;
+  text-align: center;
+}
+
+.mdl-card__supporting-text {
+  color: white;
+}
